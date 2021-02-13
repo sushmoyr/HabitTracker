@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.CreateHabitFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/title"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/title_hint" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/description"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tv_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/description_hint" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/pick_date_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/pick_a_date"
+            app:elevation="10dp"
+            android:backgroundTint="@color/indigo_500"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/description"
+            app:layout_constraintStart_toStartOf="@+id/description"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
+
+        <TextView
+            android:id="@+id/show_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Date not selected"
+            app:layout_constraintEnd_toEndOf="@+id/pick_date_btn"
+            app:layout_constraintStart_toStartOf="@+id/pick_date_btn"
+            app:layout_constraintTop_toBottomOf="@+id/pick_date_btn" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/pick_time_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/indigo_500"
+            android:text="@string/pick_a_time"
+            app:elevation="10dp"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/show_date"
+            app:layout_constraintStart_toStartOf="@+id/show_date"
+            app:layout_constraintTop_toBottomOf="@+id/show_date" />
+
+        <TextView
+            android:id="@+id/show_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/time_not_selected"
+            app:layout_constraintEnd_toEndOf="@+id/pick_time_btn"
+            app:layout_constraintStart_toStartOf="@+id/pick_time_btn"
+            app:layout_constraintTop_toBottomOf="@+id/pick_time_btn" />
+
+        <LinearLayout
+            android:id="@+id/image_holder"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/show_time"
+            app:layout_constraintStart_toStartOf="@+id/show_time"
+            app:layout_constraintTop_toBottomOf="@+id/show_time">
+
+            <ImageView
+                android:id="@+id/fastfood"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/fastfood_selected"
+                android:contentDescription="@string/fast_food_icon" />
+
+            <ImageView
+                android:id="@+id/tea"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/tea_selected"
+                android:contentDescription="@string/tea_cup_icon" />
+
+            <ImageView
+                android:id="@+id/cigar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/smoking_selected"
+                android:contentDescription="@string/smoking_icon" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirm_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/blue_A200"
+            app:elevation="10dp"
+            android:text="@string/confirm"
+            android:textColor="@color/black"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/image_holder"
+            app:layout_constraintStart_toStartOf="@+id/image_holder"
+            app:layout_constraintTop_toBottomOf="@+id/image_holder" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.core.widget.NestedScrollView>

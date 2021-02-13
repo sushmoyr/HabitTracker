@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/habitList">
+
+    <fragment
+        android:id="@+id/habitList"
+        android:name="com.sushmoyr.habittracker.ui.fragments.HabitListFragment"
+        android:label="Habits"
+        tools:layout="@layout/fragment_habit_list">
+        <action
+            android:id="@+id/action_habitList_to_createHabitFragment"
+            app:destination="@id/createHabitFragment" />
+        <action
+            android:id="@+id/action_habitList_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createHabitFragment"
+        android:name="com.sushmoyr.habittracker.ui.fragments.CreateHabitFragment"
+        android:label="Create Habit"
+        tools:layout="@layout/fragment_create_habit">
+        <action
+            android:id="@+id/action_createHabitFragment_to_habitList"
+            app:destination="@id/habitList" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.sushmoyr.habittracker.ui.fragments.UpdateFragment"
+        android:label="Update Habit"
+        tools:layout="@layout/fragment_update">
+        <action
+            android:id="@+id/action_updateFragment_to_habitList"
+            app:destination="@id/habitList" />
+        <argument
+            android:name="selectedHabits"
+            app:argType="com.sushmoyr.habittracker.database.Habit" />
+    </fragment>
+</navigation>
